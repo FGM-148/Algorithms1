@@ -1,0 +1,3 @@
+Specification for programming assignments:
+
+II.Queues http://coursera.cs.princeton.edu/algs4/assignments/queues.html
