@@ -63,9 +63,6 @@ public class Solver {
             SearchNode dequedTwin = twinMinPQ.delMin();
 
             while (!dequedBoard.isGoal() && !dequedTwin.isGoal()) {
-                dequedBoard.setChildren();
-                dequedTwin.setChildren();
-
                 for (SearchNode child : dequedBoard.children)
                     boardMinPQ.insert(child);
 
@@ -74,6 +71,8 @@ public class Solver {
 
                 dequedBoard = boardMinPQ.delMin();
                 dequedTwin = twinMinPQ.delMin();
+                dequedBoard.setChildren();
+                dequedTwin.setChildren();
             }
 
             if (dequedTwin.isGoal())
@@ -117,6 +116,11 @@ public class Solver {
 
         SearchNode(Board b) {
             this(b, null, 0);
+            ArrayList<SearchNode> childrenList = new ArrayList<>();
+            for (Board neighbour : board.neighbors()) {
+                    childrenList.add(new SearchNode(neighbour, this, moves+1));
+            }
+            children = childrenList;
         }
 
         int priorityFunction(Board board, int moves) {
@@ -144,7 +148,7 @@ public class Solver {
             ArrayList<SearchNode> childrenList = new ArrayList<>();
 
             for (Board neighbour : board.neighbors()) {
-                if(!neighbour.equals(this.board))
+                if(!neighbour.equals(previous.board))
                     childrenList.add(new SearchNode(neighbour, this, moves+1));
             }
             children = childrenList;
