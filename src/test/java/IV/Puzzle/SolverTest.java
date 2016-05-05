@@ -8,7 +8,7 @@ public class SolverTest {
 
     @Test
     public void test(){
-        Board board = new CreateBlocks("puzzle27").getBoard();
+        Board board = new CreateBlocks("puzzle04").getBoard();
 
 
         Solver solver = new Solver(board);

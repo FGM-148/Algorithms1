@@ -20,7 +20,6 @@ public class Board {
             throw new NullPointerException();
 
         this.blocks = new short[blocks.length][blocks.length];
-//        System.arraycopy(blocks,0, this.blocks,0,blocks.length);
 
         for (int i = 0; i < blocks.length; i++)
             for (int j = 0; j < blocks.length; j++) {
@@ -34,7 +33,6 @@ public class Board {
             throw new NullPointerException();
 
         this.blocks = new short[blocks.length][blocks.length];
-//        System.arraycopy(blocks,0, this.blocks,0,blocks.length);
         for (int i = 0; i < blocks.length; i++)
             for (int j = 0; j < blocks.length; j++) {
                 this.blocks[i][j] = blocks[i][j];
@@ -45,7 +43,6 @@ public class Board {
     private void calculateValues(int i, int j) {
         calculateHamming(i, j);
         calculateManhattan(i, j);
-//        isPositionEqualToGoal(i, j);
 
         if (blocks[i][j] == 0) {
             xBlank = (byte) i;
@@ -61,20 +58,6 @@ public class Board {
 
     // number of blocks out of place
     public int hamming() {
-//        int result = 0;
-//        int i = 0;
-//        int j = 0;
-//
-//        for (i = 0; i < blocks.length; i++)
-//            for (j = 0; i < blocks.length; j++)
-//                if (blocks[i][j] != i + j + 1)
-//                    result++;
-//
-//        if (blocks[i][j] == blocks.length-1)
-//            result--;
-//
-//        return result;
-
         return hammingPriority;
     }
 
@@ -87,17 +70,6 @@ public class Board {
 
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
-//        int result = 0;
-//
-//        for (int i = 0; i < blocks.length; i++)
-//            for (int j = 0; i < blocks.length; j++)
-//                if (blocks[i][j] != 0)
-//                    result += Math.abs(blocks[i][j] - (i + j + 1));
-//                else
-//                    result += blocks.length - blocks[i][j] + 1;
-//
-//        return result;
-
         return manhattanDistance;
     }
 
@@ -120,7 +92,6 @@ public class Board {
                 manhattanDistance += Math.abs(i-k) + Math.abs(j-l);
             }
         }
-
     }
 
     // is this blocks the goal blocks?
@@ -223,9 +194,7 @@ public class Board {
                 if (blocks[i][j] != that.blocks[i][j])
                     return false;
         }
-
         return true;
-
     }
 
     // all neighboring boards
@@ -254,7 +223,6 @@ public class Board {
             for (int j = 0; j < blocks.length; j++)
                 result.append(String.format("%2d ", blocks[i][j]));
         }
-
         return result.toString();
     }
 
