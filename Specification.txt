@@ -2,3 +2,5 @@ Specification for programming assignments:
 
 I.Percolation http://coursera.cs.princeton.edu/algs4/assignments/percolation.html - result 101.25%
 II.Queues http://coursera.cs.princeton.edu/algs4/assignments/queues.html - result 100%
+III. Pattern Recognition http://coursera.cs.princeton.edu/algs4/assignments/collinear.html - result 100%
+IV. 8 Puzzle http://coursera.cs.princeton.edu/algs4/assignments/8puzzle.html - result 100%
